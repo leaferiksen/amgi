@@ -28,7 +28,7 @@ struct WatchDeckDetailView: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .disabled(counts.total == 0)
-                Text("When you are done, double tap the screen to return here.")
+                Text("Tap to replay audio, double tap to exit.")
             }
         }
         .navigationTitle(deck.name.split(separator: "::").last ?? "")
