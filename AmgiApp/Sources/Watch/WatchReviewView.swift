@@ -25,7 +25,7 @@ struct WatchReviewView: View {
                 cardContent
             }
         }
-        .background(Color.amgiBackground)
+        .background(Color.black)
         ._statusBarHidden()  // hide clock
         .toolbar(.hidden, for: .navigationBar)  // hide close button
         .ignoresSafeArea(edges: .top)
@@ -72,7 +72,6 @@ struct WatchReviewView: View {
         }
         .ignoresSafeArea(edges: .bottom)
     }
-
     private func reviewButton(title: String, color: Color, font: Font = .headline, action: @escaping () -> Void) -> some View {
         Button(action: action) {
             Text(title)
@@ -84,7 +83,6 @@ struct WatchReviewView: View {
         .frame(maxWidth: .infinity)
         .background(color)
     }
-
     private func ratingButton(_ rating: Rating, color: Color) -> some View {
         reviewButton(
             title: session.nextIntervals[rating] ?? "",

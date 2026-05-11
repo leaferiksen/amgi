@@ -8,14 +8,12 @@ import SwiftUI
 struct WatchStatsView: View {
     @Dependency(\.statsClient) var statsClient
     @Dependency(\.deckClient) var deckClient
-
     @State private var graphs: Anki_Stats_GraphsResponse?
     @State private var isLoading = true
     @State private var errorMessage: String?
     @State private var period: StatsPeriod = .month
     @State private var decks: [DeckInfo] = []
     @State private var selectedDeck: DeckInfo?
-
     var body: some View {
         Group {
             if isLoading {
@@ -31,7 +29,6 @@ struct WatchStatsView: View {
                         deckPicker
                         periodPicker
                     }
-
                     Group {
                         PeriodStatsCard(period: period, today: graphs.today, reviews: graphs.reviews)
                         FutureDueChart(futureDue: graphs.futureDue, period: period)
@@ -61,7 +58,6 @@ struct WatchStatsView: View {
             Task { await loadStats() }
         }
     }
-
     private var deckPicker: some View {
         Picker(selection: $selectedDeck) {
             Text("Collection").tag(nil as DeckInfo?)
@@ -72,7 +68,6 @@ struct WatchStatsView: View {
             Text("Deck")
         }
     }
-
     private var periodPicker: some View {
         Picker(selection: $period) {
             ForEach(StatsPeriod.allCases, id: \.self) { p in
@@ -82,11 +77,9 @@ struct WatchStatsView: View {
             Text("Period")
         }
     }
-
     private func loadDecks() async {
         decks = (try? deckClient.fetchAll()) ?? []
     }
-
     private func loadStats() async {
         isLoading = graphs == nil
         do {

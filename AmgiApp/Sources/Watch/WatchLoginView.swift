@@ -42,7 +42,6 @@ struct WatchLoginView: View {
                     .foregroundStyle(.red)
                     .multilineTextAlignment(.center)
             }
-
             Button {
                 Task { await login() }
             } label: {

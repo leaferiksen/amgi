@@ -115,11 +115,8 @@ targets:
           - ShareSheet.swift
           - CardContextMenu.swift
           - TagsView.swift
-      - path: Sources/Theme
-        type: group
-        excludes:
-          - AmgiColors.swift
-          - AmgiModifiers.swift
+      - path: Sources/Theme/AmgiSpacing.swift
+      - path: Sources/Theme/AmgiTypography.swift
       - path: Sources/Decks
         type: group
         excludes:
